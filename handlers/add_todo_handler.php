@@ -1,40 +1,26 @@
 <?php
 
-  include "../database/database.php";
+include "../database/database.php";
 
-  try
-  {
+try {
 
-    if($_SERVER['REQUEST_METHOD']=="POST"){
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-      $title = $_POST['title'];
-      $description = $_POST['description'];
-      $status= 0;
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $status = 0;
 
-      $stmt = $conn->prepare("INSERT INTO todo (title, description, status) VALUES (?, ?, ?)"); 
-      
-      $stmt->bind_param("ssi",$title,$description,$status);
+    $stmt = $conn->prepare("INSERT INTO todo (title, description, status) VALUES (?, ?, ?)");
 
-      if($stmt->execute())
-      {
-        header("Location: ../index.php");
-        exit;
-      }
-      else
-      {
-        echo "operation failed";
-      }
+    $stmt->bind_param("ssi", $title, $description, $status);
 
+    if ($stmt->execute()) {
+      header("Location: ../index.php");
+      exit;
+    } else {
+      echo "operation failed";
     }
-
   }
-  catch(\Exception $e)
-  {
-    echo "Error: ".$e;
-  }
-
-
-
-
-
-?>
+} catch (\Exception $e) {
+  echo "Error: " . $e;
+}

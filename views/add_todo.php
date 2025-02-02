@@ -1,3 +1,5 @@
+<?php include '../helpers/authenticated.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

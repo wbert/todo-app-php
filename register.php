@@ -1,4 +1,6 @@
 <?php include 'helpers/not_authenticated.php'; ?>
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +16,19 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="col-md-5">
       <div class="text-center">
-        <p class="display-5 fw-bold">Todo App</p>
-        <p class="fw-bold">Please enter your credentials to login!</p>
+        <p class="display-5 fw-bold">Create your account!</p>
+        <p class="fw-bold">fill out the form!</p>
       </div>
       <div class="card p-4 shadow-lg">
-        <form class="form" action="handlers/login_handler.php" method="POST">
+        <?php if (isset($_SESSION['errors'])): ?>
+          <div class="alert alert-danger">
+            <?php
+            echo $_SESSION['errors'];
+            unset($_SESSION['errors']);
+            ?>
+          </div>
+          <?php endif; ?>        
+          <form class="form" action="handlers/register_handler.php" method="POST">
           <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" class="form-control" name="username" required />
@@ -27,11 +37,12 @@
             <label class="form-label">Password</label>
             <input type="password" class="form-control" name="password" required />
           </div>
-          <div class="mb-3 text-end">
-            <a href="register.php">Don't have an account? Click here to register!</a>
+          <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="confirm_password" required />
           </div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" class="btn btn-success">Register</button>
           </div>
         </form>
       </div>

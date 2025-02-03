@@ -1,4 +1,5 @@
-<?php include 'helpers/not_authenticated.php'; ?>
+<?php
+include 'helpers/not_authenticated.php';
 session_start();
 ?>
 <!DOCTYPE html>
@@ -27,8 +28,8 @@ session_start();
             unset($_SESSION['errors']);
             ?>
           </div>
-          <?php endif; ?>        
-          <form class="form" action="handlers/register_handler.php" method="POST">
+        <?php endif; ?>
+        <form class="form" action="handlers/register_handler.php" method="POST">
           <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" class="form-control" name="username" required />
@@ -51,4 +52,3 @@ session_start();
 </body>
 
 </html>
-

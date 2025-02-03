@@ -5,21 +5,21 @@ include '../helpers/authenticated.php';
 try {
 
 
-    $id = $_GET['id'];
+  $id = $_GET['id'];
 
-    $stmt = $conn->prepare("SELECT * FROM todo WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+  $stmt = $conn->prepare("SELECT * FROM todo WHERE id = ?");
+  $stmt->bind_param("i", $id);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-    if ($result && $result->num_rows > 0) {
-        $todo = $result->fetch_assoc();
-    } else {
-        die("Todo not found");
-    }
-    $stmt->close();
+  if ($result && $result->num_rows > 0) {
+    $todo = $result->fetch_assoc();
+  } else {
+    die("Todo not found");
+  }
+  $stmt->close();
 } catch (\Exception $e) {
-    echo "Error: " . $e;
+  echo "Error: " . $e;
 }
 
 

@@ -8,3 +8,10 @@ CREATE TABLE IF NOT EXISTS todo (
         description VARCHAR(100) NOT NULL,
         status BOOLEAN NOT NULL
         );
+
+
+CREATE TABLE IF NOT EXISTS users (
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(100) NOT NULL,
+        password LONGTEXT(200) NOT NULL
+        );

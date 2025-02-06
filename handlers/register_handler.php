@@ -9,12 +9,6 @@ try {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Check if passwords match
-    if ($password !== $confirm_password) {
-      $_SESSION['errors'] = "Password Mismatch!";
-      header("Location: ../register.php");
-      exit;
-    }
 
     // Check if username already exists
     if (username_exists($username)) {
@@ -22,6 +16,14 @@ try {
       header("Location: ../register.php");
       exit;
     }
+
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+      $_SESSION['errors'] = "Password Mismatch!";
+      header("Location: ../register.php");
+      exit;
+    }
+
 
     // Create an account if username does not exist
     if (create_account($username, $password)) {

@@ -8,6 +8,7 @@
   <title>Todo App</title>
   <link href="statics/css/bootstrap.min.css" rel="stylesheet">
   <script src="statics/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -31,7 +32,8 @@
             <a href="register.php">Don't have an account? Click here to register!</a>
           </div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" class="btn btn-success">Login&nbsp;<i class="fa-solid fa-right-to-bracket"></i></button>
+
           </div>
         </form>
       </div>
